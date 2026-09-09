@@ -3,284 +3,163 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#20c65a">
+  <meta name="theme-color" content="#19b74a">
   <title>HappyMod</title>
-  <meta name="description" content="HappyMod-style UI concept. No real mod downloads are provided.">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <div class="phone-shell">
-    <header class="app-header">
-      <div class="topbar">
-        <button class="icon-button menu-btn" aria-label="Menu">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></svg>
-        </button>
-
-        <div class="wordmark">HappyMod</div>
-
-        <div class="top-actions">
-          <button class="icon-button search-btn" aria-label="Search">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
-          </button>
-          <button class="icon-button download-btn" aria-label="Downloads">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 18.5h14"/></svg>
-          </button>
-        </div>
+<div class="app">
+  <header class="topbar">
+    <div class="topline">
+      <button class="icon-btn menu-btn" aria-label="Menu">☰</button>
+      <div class="brand">HappyMod</div>
+      <div class="top-actions">
+        <button class="icon-btn search-btn" aria-label="Search">⌕</button>
+        <button class="icon-btn download-btn" aria-label="Downloads">⇩</button>
       </div>
+    </div>
 
-      <div class="search-panel" id="searchPanel">
-        <div class="search-box">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
-          <input id="searchInput" type="search" placeholder="Search games and apps" autocomplete="off">
-          <button id="clearSearch" aria-label="Clear">×</button>
-        </div>
+    <div class="search-wrap" id="searchWrap">
+      <div class="search-box">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="Search games" autocomplete="off">
+        <button id="clearSearch">×</button>
       </div>
+    </div>
 
-      <nav class="section-tabs" aria-label="Main sections">
-        <button class="section-tab active" data-tab="featured">Featured</button>
-        <button class="section-tab" data-tab="game">Game</button>
-        <button class="section-tab" data-tab="app">App</button>
-      </nav>
-    </header>
-
-    <main id="appMain">
-      <section class="ad-card">
-        <div class="ad-label">AD</div>
-        <div class="ad-copy">
-          <span>PLAY INSTANTLY</span>
-          <strong>Mini Game Zone</strong>
-          <small>No install needed</small>
-        </div>
-        <button class="fake-action">PLAY</button>
-      </section>
-
-      <section class="quick-grid">
-        <button class="quick-item" data-filter="offline">
-          <span class="quick-icon offline"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0M12 4v10m0 0 4-4m-4 4-4-4"/></svg></span>
-          <span>Offline</span>
-        </button>
-        <button class="quick-item" data-filter="action">
-          <span class="quick-icon action"><svg viewBox="0 0 24 24"><path d="m7 17 10-10M8 7h9v9"/></svg></span>
-          <span>Action</span>
-        </button>
-        <button class="quick-item" data-filter="arcade">
-          <span class="quick-icon arcade"><svg viewBox="0 0 24 24"><path d="M7 9h10l2 9H5l2-9Zm2 3v3m-1.5-1.5h3M15 13.5h.01M17 15.5h.01"/></svg></span>
-          <span>Arcade</span>
-        </button>
-        <button class="quick-item" data-filter="casual">
-          <span class="quick-icon casual"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9 10h.01M15 10h.01M9 15c1.7 1.3 4.3 1.3 6 0"/></svg></span>
-          <span>Casual</span>
-        </button>
-        <button class="quick-item" data-filter="racing">
-          <span class="quick-icon racing"><svg viewBox="0 0 24 24"><path d="M5 15h14l-2-5H8l-3 5Zm2 0-1 3m11-3 1 3M8 12h8"/></svg></span>
-          <span>Racing</span>
-        </button>
-        <button class="quick-item" data-filter="simulation">
-          <span class="quick-icon sim"><svg viewBox="0 0 24 24"><path d="M6 7h12v10H6zM9 11h6M9 14h3"/></svg></span>
-          <span>Simulation</span>
-        </button>
-        <button class="quick-item" data-filter="strategy">
-          <span class="quick-icon strategy"><svg viewBox="0 0 24 24"><path d="m5 19 5-5m4-4 5-5M7 5l12 12M5 7l2-2m10 14 2-2"/></svg></span>
-          <span>Strategy</span>
-        </button>
-        <button class="quick-item" data-filter="sports">
-          <span class="quick-icon sports"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m8 6 3 4-2 4 4 4m3-11-5 3m7 4-5 4"/></svg></span>
-          <span>Sports</span>
-        </button>
-      </section>
-
-      <section class="content-section">
-        <div class="section-heading">
-          <h2>Popular Mods</h2>
-          <button class="text-button fake-action">MORE</button>
-        </div>
-
-        <div class="horizontal-cards">
-          <article class="feature-card searchable" data-type="game action" data-name="Block Craft Adventure">
-            <div class="feature-art art-green"><div class="pixel-face">B</div><span>BLOCK<br>CRAFT</span></div>
-            <h3>Block Craft Adventure</h3>
-            <p>Unlimited items</p>
-          </article>
-
-          <article class="feature-card searchable" data-type="game racing" data-name="Car Street Legends">
-            <div class="feature-art art-blue"><div class="car-shape">◆</div><span>CAR<br>STREET</span></div>
-            <h3>Car Street Legends</h3>
-            <p>Unlimited money</p>
-          </article>
-
-          <article class="feature-card searchable" data-type="game simulation" data-name="School Life Sim">
-            <div class="feature-art art-pink"><div class="pixel-face">S</div><span>SCHOOL<br>LIFE</span></div>
-            <h3>School Life Sim</h3>
-            <p>Menu mod</p>
-          </article>
-
-          <article class="feature-card searchable" data-type="game arcade" data-name="Stick Battle">
-            <div class="feature-art art-orange"><div class="pixel-face">SB</div><span>STICK<br>BATTLE</span></div>
-            <h3>Stick Battle</h3>
-            <p>Unlocked</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-section">
-        <div class="section-heading">
-          <h2>Video Verified Mods</h2>
-          <button class="text-button fake-action">MORE</button>
-        </div>
-
-        <div class="app-list">
-          <article class="app-row searchable" data-type="game action offline" data-name="Shadow Fighter">
-            <div class="app-icon icon-shadow"><span>SF</span></div>
-            <div class="app-details">
-              <h3>Shadow Fighter</h3>
-              <p>Mod: Unlimited coins</p>
-              <div class="metadata"><span class="stars">★ 4.7</span><span>96% working</span></div>
-            </div>
-            <button class="download-pill fake-action">Download</button>
-          </article>
-
-          <article class="app-row searchable" data-type="game racing offline" data-name="Extreme Car Driving">
-            <div class="app-icon icon-car"><span>XC</span></div>
-            <div class="app-details">
-              <h3>Extreme Car Driving</h3>
-              <p>Mod: Money / unlocked cars</p>
-              <div class="metadata"><span class="stars">★ 4.6</span><span>94% working</span></div>
-            </div>
-            <button class="download-pill fake-action">Download</button>
-          </article>
-
-          <article class="app-row searchable" data-type="game strategy" data-name="Zombie Defense">
-            <div class="app-icon icon-zombie"><span>ZD</span></div>
-            <div class="app-details">
-              <h3>Zombie Defense</h3>
-              <p>Mod: Free upgrades</p>
-              <div class="metadata"><span class="stars">★ 4.8</span><span>98% working</span></div>
-            </div>
-            <button class="download-pill fake-action">Download</button>
-          </article>
-        </div>
-      </section>
-
-      <section class="wide-promo">
-        <div class="promo-image">
-          <div class="promo-badge">HOT</div>
-          <div>
-            <strong>Open World Collection</strong>
-            <span>Community favorites</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-section">
-        <div class="section-heading">
-          <h2>Recommended for You</h2>
-          <button class="text-button fake-action">MORE</button>
-        </div>
-
-        <div class="app-list">
-          <article class="app-row searchable" data-type="game casual sports" data-name="Soccer Hero">
-            <div class="app-icon icon-soccer"><span>SH</span></div>
-            <div class="app-details">
-              <h3>Soccer Hero</h3>
-              <p>Mod: Remove ads</p>
-              <div class="metadata"><span class="stars">★ 4.5</span><span>92% working</span></div>
-            </div>
-            <button class="download-pill fake-action">Download</button>
-          </article>
-
-          <article class="app-row searchable" data-type="app" data-name="Photo Studio Pro">
-            <div class="app-icon icon-photo"><span>PS</span></div>
-            <div class="app-details">
-              <h3>Photo Studio Pro</h3>
-              <p>Mod: Premium unlocked</p>
-              <div class="metadata"><span class="stars">★ 4.7</span><span>95% working</span></div>
-            </div>
-            <button class="download-pill fake-action">Download</button>
-          </article>
-
-          <article class="app-row searchable" data-type="app" data-name="Music Player Plus">
-            <div class="app-icon icon-music"><span>MP</span></div>
-            <div class="app-details">
-              <h3>Music Player Plus</h3>
-              <p>Mod: Premium features</p>
-              <div class="metadata"><span class="stars">★ 4.4</span><span>91% working</span></div>
-            </div>
-            <button class="download-pill fake-action">Download</button>
-          </article>
-
-          <article class="app-row searchable" data-type="game simulation casual" data-name="Tiny Farm Story">
-            <div class="app-icon icon-farm"><span>TF</span></div>
-            <div class="app-details">
-              <h3>Tiny Farm Story</h3>
-              <p>Mod: Unlimited gems</p>
-              <div class="metadata"><span class="stars">★ 4.8</span><span>97% working</span></div>
-            </div>
-            <button class="download-pill fake-action">Download</button>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-section category-section">
-        <div class="section-heading">
-          <h2>Games Categories</h2>
-        </div>
-        <div class="category-list">
-          <button class="category-row" data-filter="action"><span>Action</span><b>›</b></button>
-          <button class="category-row" data-filter="racing"><span>Racing</span><b>›</b></button>
-          <button class="category-row" data-filter="simulation"><span>Simulation</span><b>›</b></button>
-          <button class="category-row" data-filter="casual"><span>Casual</span><b>›</b></button>
-          <button class="category-row" data-filter="strategy"><span>Strategy</span><b>›</b></button>
-        </div>
-      </section>
-
-      <div class="no-results" id="noResults">
-        <strong>No matches</strong>
-        <span>Try another search.</span>
-      </div>
-
-      <footer class="demo-footer">
-        UI concept only. Buttons do not download APKs or mods.
-      </footer>
-    </main>
-
-    <nav class="bottom-nav" aria-label="Bottom navigation">
-      <button class="bottom-item active" data-bottom="home">
-        <svg viewBox="0 0 24 24"><path d="m4 11 8-7 8 7v9h-6v-6h-4v6H4z"/></svg>
-        <span>Home</span>
-      </button>
-      <button class="bottom-item" data-bottom="working">
-        <svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/><circle cx="12" cy="12" r="9"/></svg>
-        <span>100% Working</span>
-      </button>
-      <button class="bottom-item" data-bottom="mini">
-        <svg viewBox="0 0 24 24"><path d="M7 10h10l2 8H5l2-8Zm2 3v3m-1.5-1.5h3M15 14h.01M17 16h.01"/></svg>
-        <span>Mini Games</span>
-      </button>
+    <nav class="tabs">
+      <button class="tab active" data-tab="featured">Featured</button>
+      <button class="tab" data-tab="game">Game</button>
+      <button class="tab" data-tab="app">App</button>
+      <button class="tab" data-tab="telegram">Telegram</button>
     </nav>
-  </div>
+  </header>
 
-  <div class="drawer-backdrop" id="drawerBackdrop">
-    <aside class="drawer">
-      <div class="drawer-brand">
-        <div class="mini-logo">H</div>
-        <div>
-          <strong>HappyMod</strong>
-          <span>UI demo</span>
+  <main>
+    <section class="category-grid">
+      <button class="category" data-filter="offline"><span class="cat-icon green">⇩</span><span>Offline</span></button>
+      <button class="category" data-filter="single"><span class="cat-icon blue">●</span><span>Single player</span></button>
+      <button class="category" data-filter="paid"><span class="cat-icon orange">$</span><span>Paid</span></button>
+      <button class="category" data-filter="region"><span class="cat-icon purple">⌖</span><span>Region locked</span></button>
+      <button class="category" data-filter="reviews"><span class="cat-icon red">★</span><span>Reviews</span></button>
+      <button class="category" data-filter="ai"><span class="cat-icon cyan">AI</span><span>AI</span></button>
+      <button class="category" data-filter="xapk"><span class="cat-icon teal">X</span><span>Xapk Installer</span></button>
+      <button class="category" data-filter="all"><span class="cat-icon gray">▦</span><span>Categories</span></button>
+    </section>
+
+    <section class="safe-banner">
+      <div class="mascot">✓</div>
+      <div>
+        <strong>Official version download (100% safe!)</strong>
+        <span>100% Working & Verify Mods.</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><h2>Popular in last 24 hours</h2><button class="more">More ›</button></div>
+      <div class="game-strip">
+        <article class="game-card searchable" data-type="game offline single" data-name="Minecraft">
+          <img src="https://image.stern.de/35315264/t/N4/v1/w1440/r1.7778/-/minecraft--app-store-charts--1-.jpg" alt="Minecraft">
+          <h3>Minecraft</h3>
+        </article>
+        <article class="game-card searchable" data-type="game single" data-name="Grand Theft Auto San Andreas">
+          <img src="https://vectorified.com/images/gta-sa-icon-29.png" alt="Grand Theft Auto San Andreas">
+          <h3>Grand Theft Auto: San Andreas</h3>
+        </article>
+        <article class="game-card searchable" data-type="game racing" data-name="Car Parking Multiplayer">
+          <img src="https://dl.memuplay.com/new_market/img/com.olzhas.carparking.multyplayer.icon.2025-02-07-14-15-48.png" alt="Car Parking Multiplayer">
+          <h3>Car Parking Multiplayer</h3>
+        </article>
+        <article class="game-card searchable" data-type="game casual" data-name="Toca Boca World">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/eb/a2/d5/eba2d5dd-d70a-e6e9-7c7c-ccda0adf48d7/Placeholder.mill/1024x1024wd.png" alt="Toca Boca World">
+          <h3>Toca Boca World</h3>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><h2>Collection</h2><button class="more">More ›</button></div>
+      <div class="collection-grid">
+        <div class="collection-card">
+          <div class="stacked-icons">
+            <img src="https://cdn.prod.website-files.com/64412b807255927a6bd27042/697765ed847afab11e32d10a_SYBO%20_%20Subway%20Surfers.png" alt="Subway Surfers">
+            <img src="https://geometrydash2.com/data/image/game/geometry-dash/dashmetry-3.png" alt="Geometry Dash">
+          </div>
+          <span>Popular Games</span>
+        </div>
+        <div class="collection-card">
+          <div class="stacked-icons">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/40/e1/ab/40e1abb0-cfcb-1efb-2eac-f8b274028e8c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x630wa.png" alt="Poppy Playtime">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b4/d9/fc/b4d9fc91-b318-ab14-4d2c-f6e067afb081/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/1024x1024wd.png" alt="Roblox">
+          </div>
+          <span>Top Downloads</span>
         </div>
       </div>
-      <button class="drawer-link">Home</button>
-      <button class="drawer-link">Games</button>
-      <button class="drawer-link">Apps</button>
-      <button class="drawer-link">New Mods</button>
-      <button class="drawer-link">Top Downloads</button>
-      <button class="drawer-link">Categories</button>
-      <div class="drawer-divider"></div>
-      <button class="drawer-link">Settings</button>
-      <button class="drawer-link">About</button>
-    </aside>
-  </div>
+    </section>
 
-  <div class="toast" id="toast">UI demo only</div>
-  <script src="./app.js"></script>
+    <section class="wide-ad">
+      <div class="ad-copy"><small>GAME PICKS</small><strong>Play something new</strong></div>
+      <div class="ad-shapes"><i></i><i></i><i></i></div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><h2>Recommended game mods</h2><button class="more">More ›</button></div>
+      <div class="game-strip">
+        <article class="game-card searchable" data-type="game horror single" data-name="Poppy Playtime Chapter 1">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/40/e1/ab/40e1abb0-cfcb-1efb-2eac-f8b274028e8c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x630wa.png" alt="Poppy Playtime Chapter 1">
+          <h3>Poppy Playtime Chapter 1</h3>
+        </article>
+        <article class="game-card searchable" data-type="game sports single" data-name="Dream League Soccer">
+          <img src="https://alternative.me/media/512/dream-league-soccer-thumbnail-3siap3dnkp9j6nig-c.png" alt="Dream League Soccer">
+          <h3>Dream League Soccer</h3>
+        </article>
+        <article class="game-card searchable" data-type="game sports" data-name="8 Ball Pool">
+          <img src="https://imgc.eximg.jp/i%3Dhttps%253A%252F%252Fs.eximg.jp%252Fexnews%252Ffeed%252FTouchLab%252FTouchLab_14499_1.png%2Czoom%3D600%2Cquality%3D70%2Ctype%3Dwebp" alt="8 Ball Pool">
+          <h3>8 Ball Pool</h3>
+        </article>
+        <article class="game-card searchable" data-type="game arcade offline" data-name="Subway Surfers">
+          <img src="https://cdn.prod.website-files.com/64412b807255927a6bd27042/697765ed847afab11e32d10a_SYBO%20_%20Subway%20Surfers.png" alt="Subway Surfers">
+          <h3>Subway Surfers</h3>
+        </article>
+        <article class="game-card searchable" data-type="game arcade offline" data-name="Geometry Dash">
+          <img src="https://geometrydash2.com/data/image/game/geometry-dash/dashmetry-3.png" alt="Geometry Dash">
+          <h3>Geometry Dash</h3>
+        </article>
+        <article class="game-card searchable" data-type="game online" data-name="Roblox">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b4/d9/fc/b4d9fc91-b318-ab14-4d2c-f6e067afb081/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/1024x1024wd.png" alt="Roblox">
+          <h3>Roblox</h3>
+        </article>
+      </div>
+    </section>
+
+    <section class="section list-section">
+      <div class="section-title"><h2>Latest games</h2><button class="more">More ›</button></div>
+      <div class="list-games">
+        <article class="list-game searchable" data-type="game offline single" data-name="Minecraft"><img src="https://image.stern.de/35315264/t/N4/v1/w1440/r1.7778/-/minecraft--app-store-charts--1-.jpg" alt="Minecraft"><span>Minecraft</span><b>›</b></article>
+        <article class="list-game searchable" data-type="game racing" data-name="Car Parking Multiplayer"><img src="https://dl.memuplay.com/new_market/img/com.olzhas.carparking.multyplayer.icon.2025-02-07-14-15-48.png" alt="Car Parking Multiplayer"><span>Car Parking Multiplayer</span><b>›</b></article>
+        <article class="list-game searchable" data-type="game casual" data-name="Toca Boca World"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/eb/a2/d5/eba2d5dd-d70a-e6e9-7c7c-ccda0adf48d7/Placeholder.mill/1024x1024wd.png" alt="Toca Boca World"><span>Toca Boca World</span><b>›</b></article>
+        <article class="list-game searchable" data-type="game arcade" data-name="Subway Surfers"><img src="https://cdn.prod.website-files.com/64412b807255927a6bd27042/697765ed847afab11e32d10a_SYBO%20_%20Subway%20Surfers.png" alt="Subway Surfers"><span>Subway Surfers</span><b>›</b></article>
+      </div>
+    </section>
+
+    <div class="no-results" id="noResults">No games found.</div>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="bottom-item active" data-bottom="home"><span class="nav-icon">⌂</span><span>Home</span></button>
+    <button class="bottom-item" data-bottom="working"><span class="nav-icon">✓</span><span>100% working</span></button>
+    <button class="bottom-item" data-bottom="mini"><span class="nav-icon">🎮</span><span>Mini Games</span></button>
+  </nav>
+</div>
+
+<div class="drawer-shade" id="drawerShade">
+  <aside class="drawer">
+    <div class="drawer-head"><div class="drawer-logo">✓</div><strong>HappyMod</strong></div>
+    <button>Home</button><button>Games</button><button>Popular</button><button>Categories</button><button>Updates</button><button>Settings</button>
+  </aside>
+</div>
+
+<div class="toast" id="toast">UI demo only</div>
+<script src="./app.js"></script>
 </body>
 </html>
