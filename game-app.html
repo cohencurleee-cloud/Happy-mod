@@ -2,101 +2,310 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-  <meta name="theme-color" content="#18b84a">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta id="appleTitle" name="apple-mobile-web-app-title" content="Game Demo">
-  <title>Game Demo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#18c64d">
+  <title>Install App</title>
   <style>
-    *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:#0c0f0d;color:#fff}body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(circle at 50% 20%,#173321 0,#0c0f0d 48%,#080a09 100%)}.shell{width:min(100%,440px);text-align:center}.icon{width:132px;height:132px;border-radius:30px;object-fit:cover;background:#222;box-shadow:0 18px 45px rgba(0,0,0,.45);margin:0 auto 18px}.title{font-size:28px;line-height:1.05;margin:0}.dev{font-size:13px;color:#9da39f;margin:8px 0 0}.badge{display:inline-block;margin-top:14px;padding:5px 10px;border-radius:999px;background:#173c24;color:#64db83;font-size:11px;font-weight:700}.copy{color:#aeb4b0;font-size:14px;line-height:1.5;margin:20px auto;max-width:360px}.install{width:100%;border:0;border-radius:14px;background:#18b84a;color:#fff;font-size:17px;font-weight:750;padding:15px 18px;box-shadow:0 9px 24px rgba(24,184,74,.22)}.install:active{transform:scale(.99)}.back{margin-top:12px;width:100%;border:1px solid #29302c;border-radius:14px;background:#141816;color:#d9ddda;padding:13px 18px;font-size:15px}.steps{display:none;margin-top:18px;text-align:left;background:#131715;border:1px solid #262c28;border-radius:16px;padding:15px 16px}.steps.show{display:block}.steps strong{display:block;margin-bottom:9px}.steps p{margin:7px 0;color:#c1c6c3;font-size:13px;line-height:1.45}.installed{display:none;margin-top:18px;padding:16px;border-radius:16px;background:#111713;border:1px solid #213628}.installed.show{display:block}.installed strong{color:#60dc81}.notice{font-size:11px;color:#777f7a;margin-top:16px}
+    :root{
+      --green:#18c64d;
+      --green-dark:#0f7f2e;
+      --bg:#f3f4f5;
+      --card:#ffffff;
+      --text:#222;
+      --muted:#757575;
+      --line:#e7e7e7;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+    }
+    .topbar{
+      background:linear-gradient(180deg,#0d6924 0%, #0d6924 100%);
+      color:#fff;
+      padding:14px 16px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    .back{
+      font-size:30px;
+      text-decoration:none;
+      color:#fff;
+      line-height:1;
+    }
+    .title{
+      font-size:22px;
+      font-weight:700;
+      flex:1;
+      text-align:center;
+      margin-right:30px;
+    }
+    .hero{
+      background:#19be45;
+      color:#fff;
+      padding:22px 18px 18px;
+      text-align:center;
+    }
+    .hero h1{
+      margin:0 0 8px;
+      font-size:28px;
+    }
+    .hero p{
+      margin:0;
+      font-size:14px;
+      opacity:.95;
+    }
+    .panel{
+      margin:14px;
+      background:var(--card);
+      border-radius:16px;
+      box-shadow:0 4px 14px rgba(0,0,0,.08);
+      overflow:hidden;
+      border:1px solid #ececec;
+    }
+    .app-row{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      padding:18px;
+      border-bottom:1px solid var(--line);
+    }
+    .app-icon{
+      width:76px;height:76px;
+      border-radius:18px;
+      object-fit:cover;
+      background:#eee;
+      box-shadow:0 2px 8px rgba(0,0,0,.12);
+    }
+    .app-info h2{
+      margin:0 0 6px;
+      font-size:24px;
+      line-height:1.1;
+    }
+    .app-info p{
+      margin:0 0 8px;
+      color:#7c7c7c;
+      font-size:14px;
+    }
+    .badge{
+      display:inline-block;
+      font-size:11px;
+      font-weight:800;
+      color:#e79022;
+      background:#fff4e7;
+      border:1px solid #f0d5b0;
+      padding:5px 8px;
+      border-radius:6px;
+    }
+    .content{
+      padding:18px;
+    }
+    .install-button{
+      width:100%;
+      border:0;
+      border-radius:10px;
+      background:#1ec952;
+      color:#fff;
+      font-size:22px;
+      font-weight:800;
+      padding:16px 18px;
+      box-shadow:0 8px 18px rgba(24,198,77,.25);
+      margin-bottom:14px;
+    }
+    .caption{
+      font-size:14px;
+      color:#666;
+      line-height:1.5;
+      margin:0 0 4px;
+    }
+    .section-title{
+      padding:18px 18px 0;
+      font-size:24px;
+      font-weight:800;
+    }
+    .sub{
+      padding:8px 18px 0;
+      color:#666;
+      font-size:14px;
+      line-height:1.5;
+    }
+    .steps{
+      padding:16px 18px 18px;
+      display:grid;
+      gap:14px;
+    }
+    .step{
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background:#fff;
+    }
+    .step-head{
+      padding:12px 14px;
+      background:#f8f8f8;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .num{
+      width:28px;height:28px;border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--green);
+      color:#fff;
+      font-weight:800;
+      flex:0 0 auto;
+    }
+    .step-head strong{
+      font-size:16px;
+      display:block;
+    }
+    .step-head span{
+      display:block;
+      font-size:12px;
+      color:#767676;
+      margin-top:2px;
+    }
+    .shot-wrap{
+      padding:10px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#fff;
+    }
+    .shot{
+      max-width:100%;
+      border-radius:10px;
+      border:1px solid #ececec;
+      display:block;
+    }
+    .note{
+      margin:0 18px 18px;
+      padding:14px 14px;
+      background:#effaf2;
+      border:1px solid #d5eddc;
+      color:#28663b;
+      border-radius:12px;
+      font-size:13px;
+      line-height:1.45;
+    }
+    .footer-space{height:22px}
   </style>
-  <script>
-    (function(){
-      const p=new URLSearchParams(location.search);
-      const name=(p.get('name')||'Game Demo').slice(0,60);
-      const icon=p.get('icon')||'./apple-touch-icon.png';
-      document.title=name;
-      const appleTitle=document.getElementById('appleTitle');
-      if(appleTitle) appleTitle.content=name;
-      const touch=document.createElement('link');touch.rel='apple-touch-icon';touch.href=icon;document.head.appendChild(touch);
-      const manifest=document.createElement('link');manifest.rel='manifest';manifest.href='/api/game-manifest?name='+encodeURIComponent(name)+'&icon='+encodeURIComponent(icon);document.head.appendChild(manifest);
-    })();
-  </script>
 </head>
 <body>
-  <main class="shell">
-    <img class="icon" id="gameIcon" src="./apple-touch-icon.png" alt="">
-    <h1 class="title" id="gameName">Game Demo</h1>
-    <p class="dev" id="developer"></p>
-    <span class="badge">DEMO APP SHELL</span>
-    <p class="copy">This installs as a standalone Home Screen web app. It does not contain the real game, a cracked copy, or a modded client.</p>
-    <button class="install" id="installButton">Install App</button>
-    <button class="back" id="backButton">Back to HappyMod</button>
+  <header class="topbar">
+    <a class="back" href="./index.html" aria-label="Back">‹</a>
+    <div class="title">Install App</div>
+  </header>
 
-    <div class="steps" id="iosSteps">
-      <strong>Install on iPhone</strong>
-      <p>1. Tap the Share button in Safari.</p>
-      <p>2. Tap <b>Add to Home Screen</b>.</p>
-      <p>3. Turn on <b>Open as Web App</b>, then tap Add.</p>
+  <section class="hero">
+    <h1>Install this app</h1>
+    <p>Use the screenshots below. Way better than the wrong text.</p>
+  </section>
+
+  <section class="panel">
+    <div class="app-row">
+      <img id="appIcon" class="app-icon" src="./apple-touch-icon.png" alt="App icon">
+      <div class="app-info">
+        <h2 id="appName">Game App</h2>
+        <p id="appDev">Standalone web app</p>
+        <span class="badge">INSTALL GUIDE</span>
+      </div>
     </div>
+    <div class="content">
+      <button class="install-button" type="button" id="scrollToGuide">Install App</button>
+      <p class="caption">Tap the button and follow the screenshots below.</p>
+    </div>
+  </section>
 
-    <div class="installed" id="installedBox"><strong>App mode detected.</strong><br><span>This is the non-working demo shell you installed.</span></div>
-    <div class="notice">Apple does not allow a website to silently install an iPhone app. You must confirm the Home Screen install.</div>
-  </main>
+  <div class="section-title" id="guide">How to install</div>
+  <div class="sub">Follow these steps in order.</div>
 
-<script>
-  const p=new URLSearchParams(location.search);
-  const name=(p.get('name')||'Game Demo').slice(0,60);
-  const icon=p.get('icon')||'./apple-touch-icon.png';
-  const developer=(p.get('developer')||'').slice(0,80);
-  const iconEl=document.getElementById('gameIcon');iconEl.src=icon;iconEl.alt=name;
-  iconEl.onerror=()=>{iconEl.src='./apple-touch-icon.png'};
-  document.getElementById('gameName').textContent=name;
-  document.getElementById('developer').textContent=developer;
+  <section class="panel">
+    <div class="steps">
+      <article class="step">
+        <div class="step-head">
+          <div class="num">1</div>
+          <div>
+            <strong>Tap the menu button</strong>
+            <span>Use the button shown below.</span>
+          </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="./step1_menu.jpg" alt="Menu button screenshot">
+        </div>
+      </article>
 
-  let deferredPrompt=null;
-  const installBtn=document.getElementById('installButton');
-  const steps=document.getElementById('iosSteps');
-  const installedBox=document.getElementById('installedBox');
-  const isStandalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
-  const isiOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+      <article class="step">
+        <div class="step-head">
+          <div class="num">2</div>
+          <div>
+            <strong>Tap Share</strong>
+            <span>Open the share menu.</span>
+          </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="./step2_share.jpg" alt="Share button screenshot">
+        </div>
+      </article>
 
-  if('serviceWorker' in navigator){navigator.serviceWorker.register('/service-worker.js').catch(()=>{});}
+      <article class="step">
+        <div class="step-head">
+          <div class="num">3</div>
+          <div>
+            <strong>Tap View More</strong>
+            <span>Scroll until you see this option if needed.</span>
+          </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="./step3_view_more.jpg" alt="View More screenshot">
+        </div>
+      </article>
 
-  window.addEventListener('beforeinstallprompt',e=>{
-    e.preventDefault();
-    deferredPrompt=e;
-    installBtn.textContent='Install App';
-  });
+      <article class="step">
+        <div class="step-head">
+          <div class="num">4</div>
+          <div>
+            <strong>Tap Add to Home Screen</strong>
+            <span>That installs the app shortcut.</span>
+          </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="./step4_add_home.jpg" alt="Add to Home Screen screenshot">
+        </div>
+      </article>
+    </div>
+  </section>
 
-  if(isStandalone){
-    installBtn.style.display='none';
-    installedBox.classList.add('show');
-  }
+  <div class="note">
+    After that, the app shows on your Home Screen and opens like its own app.
+  </div>
 
-  installBtn.addEventListener('click',async()=>{
-    if(deferredPrompt){
-      deferredPrompt.prompt();
-      await deferredPrompt.userChoice.catch(()=>{});
-      deferredPrompt=null;
-      return;
+  <div class="footer-space"></div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const name = params.get('name') || 'Game App';
+    const developer = params.get('developer') || 'Standalone web app';
+    const icon = params.get('icon');
+
+    document.getElementById('appName').textContent = name;
+    document.getElementById('appDev').textContent = developer;
+    if(icon){
+      const img = document.getElementById('appIcon');
+      img.src = icon;
+      img.onerror = () => { img.src = './apple-touch-icon.png'; };
     }
-    if(isiOS){
-      steps.classList.add('show');
-      if(navigator.share){
-        try{await navigator.share({title:name,url:location.href});}catch(e){}
-      }
-      return;
-    }
-    steps.classList.add('show');
-    steps.querySelector('strong').textContent='Install this web app';
-    steps.querySelectorAll('p')[0].textContent='Open your browser menu and choose Install app or Add to Home screen.';
-    steps.querySelectorAll('p')[1].style.display='none';
-    steps.querySelectorAll('p')[2].style.display='none';
-  });
 
-  document.getElementById('backButton').addEventListener('click',()=>{location.href='./index.html'});
-</script>
+    document.getElementById('scrollToGuide').addEventListener('click', () => {
+      document.getElementById('guide').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  </script>
 </body>
 </html>
