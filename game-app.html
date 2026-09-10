@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#18b84a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta id="appleTitle" name="apple-mobile-web-app-title" content="Game Demo">
+  <title>Game Demo</title>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:#0c0f0d;color:#fff}body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(circle at 50% 20%,#173321 0,#0c0f0d 48%,#080a09 100%)}.shell{width:min(100%,440px);text-align:center}.icon{width:132px;height:132px;border-radius:30px;object-fit:cover;background:#222;box-shadow:0 18px 45px rgba(0,0,0,.45);margin:0 auto 18px}.title{font-size:28px;line-height:1.05;margin:0}.dev{font-size:13px;color:#9da39f;margin:8px 0 0}.badge{display:inline-block;margin-top:14px;padding:5px 10px;border-radius:999px;background:#173c24;color:#64db83;font-size:11px;font-weight:700}.copy{color:#aeb4b0;font-size:14px;line-height:1.5;margin:20px auto;max-width:360px}.install{width:100%;border:0;border-radius:14px;background:#18b84a;color:#fff;font-size:17px;font-weight:750;padding:15px 18px;box-shadow:0 9px 24px rgba(24,184,74,.22)}.install:active{transform:scale(.99)}.back{margin-top:12px;width:100%;border:1px solid #29302c;border-radius:14px;background:#141816;color:#d9ddda;padding:13px 18px;font-size:15px}.steps{display:none;margin-top:18px;text-align:left;background:#131715;border:1px solid #262c28;border-radius:16px;padding:15px 16px}.steps.show{display:block}.steps strong{display:block;margin-bottom:9px}.steps p{margin:7px 0;color:#c1c6c3;font-size:13px;line-height:1.45}.installed{display:none;margin-top:18px;padding:16px;border-radius:16px;background:#111713;border:1px solid #213628}.installed.show{display:block}.installed strong{color:#60dc81}.notice{font-size:11px;color:#777f7a;margin-top:16px}
+  </style>
+  <script>
+    (function(){
+      const p=new URLSearchParams(location.search);
+      const name=(p.get('name')||'Game Demo').slice(0,60);
+      const icon=p.get('icon')||'./apple-touch-icon.png';
+      document.title=name;
+      const appleTitle=document.getElementById('appleTitle');
+      if(appleTitle) appleTitle.content=name;
+      const touch=document.createElement('link');touch.rel='apple-touch-icon';touch.href=icon;document.head.appendChild(touch);
+      const manifest=document.createElement('link');manifest.rel='manifest';manifest.href='/api/game-manifest?name='+encodeURIComponent(name)+'&icon='+encodeURIComponent(icon);document.head.appendChild(manifest);
+    })();
+  </script>
+</head>
+<body>
+  <main class="shell">
+    <img class="icon" id="gameIcon" src="./apple-touch-icon.png" alt="">
+    <h1 class="title" id="gameName">Game Demo</h1>
+    <p class="dev" id="developer"></p>
+    <span class="badge">DEMO APP SHELL</span>
+    <p class="copy">This installs as a standalone Home Screen web app. It does not contain the real game, a cracked copy, or a modded client.</p>
+    <button class="install" id="installButton">Install App</button>
+    <button class="back" id="backButton">Back to HappyMod</button>
+
+    <div class="steps" id="iosSteps">
+      <strong>Install on iPhone</strong>
+      <p>1. Tap the Share button in Safari.</p>
+      <p>2. Tap <b>Add to Home Screen</b>.</p>
+      <p>3. Turn on <b>Open as Web App</b>, then tap Add.</p>
+    </div>
+
+    <div class="installed" id="installedBox"><strong>App mode detected.</strong><br><span>This is the non-working demo shell you installed.</span></div>
+    <div class="notice">Apple does not allow a website to silently install an iPhone app. You must confirm the Home Screen install.</div>
+  </main>
+
+<script>
+  const p=new URLSearchParams(location.search);
+  const name=(p.get('name')||'Game Demo').slice(0,60);
+  const icon=p.get('icon')||'./apple-touch-icon.png';
+  const developer=(p.get('developer')||'').slice(0,80);
+  const iconEl=document.getElementById('gameIcon');iconEl.src=icon;iconEl.alt=name;
+  iconEl.onerror=()=>{iconEl.src='./apple-touch-icon.png'};
+  document.getElementById('gameName').textContent=name;
+  document.getElementById('developer').textContent=developer;
+
+  let deferredPrompt=null;
+  const installBtn=document.getElementById('installButton');
+  const steps=document.getElementById('iosSteps');
+  const installedBox=document.getElementById('installedBox');
+  const isStandalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+  const isiOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+
+  if('serviceWorker' in navigator){navigator.serviceWorker.register('/service-worker.js').catch(()=>{});}
+
+  window.addEventListener('beforeinstallprompt',e=>{
+    e.preventDefault();
+    deferredPrompt=e;
+    installBtn.textContent='Install App';
+  });
+
+  if(isStandalone){
+    installBtn.style.display='none';
+    installedBox.classList.add('show');
+  }
+
+  installBtn.addEventListener('click',async()=>{
+    if(deferredPrompt){
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice.catch(()=>{});
+      deferredPrompt=null;
+      return;
+    }
+    if(isiOS){
+      steps.classList.add('show');
+      if(navigator.share){
+        try{await navigator.share({title:name,url:location.href});}catch(e){}
+      }
+      return;
+    }
+    steps.classList.add('show');
+    steps.querySelector('strong').textContent='Install this web app';
+    steps.querySelectorAll('p')[0].textContent='Open your browser menu and choose Install app or Add to Home screen.';
+    steps.querySelectorAll('p')[1].style.display='none';
+    steps.querySelectorAll('p')[2].style.display='none';
+  });
+
+  document.getElementById('backButton').addEventListener('click',()=>{location.href='./index.html'});
+</script>
+</body>
+</html>
