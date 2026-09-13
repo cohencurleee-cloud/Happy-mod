@@ -1,137 +1,30 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#18c64d">
-  <title>Install App</title>
-  <style>
-    :root{
-      --green:#18c64d;
-      --green-dark:#0f7f2e;
-      --bg:#f3f4f5;
-      --card:#ffffff;
-      --text:#222;
-      --muted:#757575;
-      --line:#e7e7e7;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:var(--bg);
-      font-family:Arial,Helvetica,sans-serif;
-      color:var(--text);
-    }
-    .topbar{
-      background:linear-gradient(180deg,#0d6924 0%, #0d6924 100%);
-      color:#fff;
-      padding:14px 16px;
-      display:flex;
-      align-items:center;
-      gap:14px;
-      position:sticky;
-      top:0;
-      z-index:10;
-    }
-    .back{font-size:30px;text-decoration:none;color:#fff;line-height:1}
-    .title{font-size:22px;font-weight:700;flex:1;text-align:center;margin-right:30px}
-    .hero{background:#19be45;color:#fff;padding:22px 18px 18px;text-align:center}
-    .hero h1{margin:0 0 8px;font-size:28px}
-    .hero p{margin:0;font-size:14px;opacity:.95}
-    .panel{margin:14px;background:var(--card);border-radius:16px;box-shadow:0 4px 14px rgba(0,0,0,.08);overflow:hidden;border:1px solid #ececec}
-    .app-row{display:flex;gap:14px;align-items:center;padding:18px;border-bottom:1px solid var(--line)}
-    .app-icon{width:76px;height:76px;border-radius:18px;object-fit:cover;background:#eee;box-shadow:0 2px 8px rgba(0,0,0,.12)}
-    .app-info h2{margin:0 0 6px;font-size:24px;line-height:1.1}
-    .app-info p{margin:0 0 8px;color:#7c7c7c;font-size:14px}
-    .badge{display:inline-block;font-size:11px;font-weight:800;color:#e79022;background:#fff4e7;border:1px solid #f0d5b0;padding:5px 8px;border-radius:6px}
-    .content{padding:18px}
-    .install-button{width:100%;border:0;border-radius:10px;background:#1ec952;color:#fff;font-size:22px;font-weight:800;padding:16px 18px;box-shadow:0 8px 18px rgba(24,198,77,.25);margin-bottom:14px}
-    .caption{font-size:14px;color:#666;line-height:1.5;margin:0 0 4px}
-    .section-title{padding:18px 18px 0;font-size:24px;font-weight:800}
-    .sub{padding:8px 18px 0;color:#666;font-size:14px;line-height:1.5}
-    .steps{padding:16px 18px 18px;display:grid;gap:14px}
-    .step{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
-    .step-head{padding:12px 14px;background:#f8f8f8;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center}
-    .num{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-weight:800;flex:0 0 auto}
-    .step-head strong{font-size:16px;display:block}
-    .step-head span{display:block;font-size:12px;color:#767676;margin-top:2px}
-    .shot-wrap{padding:10px;display:flex;justify-content:center;align-items:center;background:#fff}
-    .shot{max-width:100%;border-radius:10px;border:1px solid #ececec;display:block}
-    .note{margin:0 18px 18px;padding:14px 14px;background:#effaf2;border:1px solid #d5eddc;color:#28663b;border-radius:12px;font-size:13px;line-height:1.45}
-    .footer-space{height:22px}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#18c64d">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Install App</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f4f5;color:#222;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}.top{position:sticky;top:0;z-index:10;height:58px;background:#0e762b;color:#fff;display:flex;align-items:center;padding:0 16px}.back{font-size:36px;color:#fff;text-decoration:none;line-height:1}.top strong{flex:1;text-align:center;font-size:20px;margin-right:28px}.hero{background:#18c64d;color:#fff;text-align:center;padding:22px 16px}.hero h1{margin:0 0 6px;font-size:28px}.hero p{margin:0;font-size:14px;opacity:.94}.card{margin:14px;background:#fff;border:1px solid #e6e6e6;border-radius:16px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.07)}.app{display:flex;align-items:center;gap:14px;padding:17px}.app img{width:76px;height:76px;border-radius:18px;object-fit:cover;background:#eee}.app h2{margin:0 0 5px;font-size:23px}.app p{margin:0;color:#777;font-size:13px}.go{margin:0 17px 17px;width:calc(100% - 34px);border:0;border-radius:10px;background:#1ee159;color:#fff;font-weight:800;font-size:20px;padding:15px;box-shadow:0 7px 18px rgba(30,225,89,.28)}.heading{font-size:24px;font-weight:800;padding:10px 18px 2px}.sub{font-size:13px;color:#6f6f6f;padding:4px 18px 8px}.steps{padding:14px;display:grid;gap:14px}.step{background:#fff;border:1px solid #e5e5e5;border-radius:14px;overflow:hidden}.label{display:flex;align-items:center;gap:10px;padding:12px 13px;background:#fafafa;border-bottom:1px solid #eee}.num{width:29px;height:29px;border-radius:50%;display:grid;place-items:center;background:#18c64d;color:#fff;font-weight:800}.label strong{font-size:16px}.shot{padding:10px;background:#fff;display:flex;justify-content:center}.shot img{max-width:100%;height:auto;display:block;border-radius:9px;border:1px solid #eee}.note{margin:0 14px 22px;background:#eaf9ef;border:1px solid #cfead7;color:#28633b;padding:13px;border-radius:12px;font-size:13px;line-height:1.4}
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <a class="back" href="./index.html" aria-label="Back">‹</a>
-    <div class="title">Install App</div>
-  </header>
-
-  <section class="hero">
-    <h1>Install this app</h1>
-    <p>Use the screenshots below.</p>
-  </section>
-
-  <section class="panel">
-    <div class="app-row">
-      <img id="appIcon" class="app-icon" src="./apple-touch-icon.png" alt="App icon">
-      <div class="app-info">
-        <h2 id="appName">Game App</h2>
-        <p id="appDev">Standalone web app</p>
-        <span class="badge">INSTALL GUIDE</span>
-      </div>
-    </div>
-    <div class="content">
-      <button class="install-button" type="button" id="scrollToGuide">Install App</button>
-      <p class="caption">Tap the button and follow the screenshots below.</p>
-    </div>
-  </section>
-
-  <div class="section-title" id="guide">How to install</div>
-  <div class="sub">Follow these steps in order.</div>
-
-  <section class="panel">
-    <div class="steps">
-      <article class="step">
-        <div class="step-head"><div class="num">1</div><div><strong>Tap the menu button</strong><span>Use the button shown below.</span></div></div>
-        <div class="shot-wrap"><img class="shot" src="https://raw.githubusercontent.com/cohencurleee-cloud/Happy-mod/main/step1_menu.jpg" alt="Menu button screenshot"></div>
-      </article>
-
-      <article class="step">
-        <div class="step-head"><div class="num">2</div><div><strong>Tap Share</strong><span>Open the share menu.</span></div></div>
-        <div class="shot-wrap"><img class="shot" src="https://raw.githubusercontent.com/cohencurleee-cloud/Happy-mod/main/step2_share.jpg" alt="Share button screenshot"></div>
-      </article>
-
-      <article class="step">
-        <div class="step-head"><div class="num">3</div><div><strong>Tap View More</strong><span>Scroll until you see this option if needed.</span></div></div>
-        <div class="shot-wrap"><img class="shot" src="https://raw.githubusercontent.com/cohencurleee-cloud/Happy-mod/main/step3_view_more.jpg" alt="View More screenshot"></div>
-      </article>
-
-      <article class="step">
-        <div class="step-head"><div class="num">4</div><div><strong>Tap Add to Home Screen</strong><span>That installs the app shortcut.</span></div></div>
-        <div class="shot-wrap"><img class="shot" src="https://raw.githubusercontent.com/cohencurleee-cloud/Happy-mod/main/step4_add_home.jpg" alt="Add to Home Screen screenshot"></div>
-      </article>
-    </div>
-  </section>
-
-  <div class="note">After that, the app shows on your Home Screen and opens like its own app.</div>
-  <div class="footer-space"></div>
-
-  <script>
-    const params = new URLSearchParams(location.search);
-    const name = params.get('name') || 'Game App';
-    const developer = params.get('developer') || 'Standalone web app';
-    const icon = params.get('icon');
-    document.getElementById('appName').textContent = name;
-    document.getElementById('appDev').textContent = developer;
-    if(icon){
-      const img = document.getElementById('appIcon');
-      img.src = icon;
-      img.onerror = () => { img.src = './apple-touch-icon.png'; };
-    }
-    document.getElementById('scrollToGuide').addEventListener('click', () => {
-      document.getElementById('guide').scrollIntoView({behavior:'smooth', block:'start'});
-    });
-  </script>
-</body>
-</html>
+<header class="top"><a class="back" href="./index.html">‹</a><strong>Install App</strong></header>
+<section class="hero"><h1>Install this app</h1><p>Follow the pictures below.</p></section>
+<section class="card"><div class="app"><img id="appIcon" src="./apple-touch-icon.png" alt=""><div><h2 id="appName">Game App</h2><p id="appDev">Standalone web app</p></div></div><button class="go" id="go">Show install steps</button></section>
+<div class="heading" id="guide">How to install</div><div class="sub">Do these four steps in order.</div>
+<section class="card"><div class="steps">
+<article class="step"><div class="label"><span class="num">1</span><strong>Tap the menu button</strong></div><div class="shot"><img alt="Menu button" src="data:image/jpeg;base64,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"></div></article>
+<article class="step"><div class="label"><span class="num">2</span><strong>Tap Share</strong></div><div class="shot"><img alt="Share" src="data:image/jpeg;base64,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"></div></article>
+<article class="step"><div class="label"><span class="num">3</span><strong>Tap View More</strong></div><div class="shot"><img alt="View More" src="data:image/jpeg;base64,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"></div></article>
+<article class="step"><div class="label"><span class="num">4</span><strong>Tap Add to Home Screen</strong></div><div class="shot"><img alt="Add to Home Screen" src="data:image/jpeg;base64,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xFcr+CCxXA42U8cRa/EPxgWiPb9Hg4jayAMfSOk4nIa1Dzl3cs8/QblPJEPcT0OR9TPqZP/aAAwDAQACAAMAAAAQAU888888+++++++++++++++++++++++++++++88AAAAU8880088888888888888888888888888888888AAAIQ88oY88sk4QkQIAgMg8AkU8888888888888888AACoA88sUcsMMMcs8sMcMcM8cc8888888888888888oAAoAE0w8888888888888888888888888888888484AAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/8QAFBEBAAAAAAAAAAAAAAAAAAAAcP/aAAgBAwEBPxB8/8QAFBEBAAAAAAAAAAAAAAAAAAAAcP/aAAgBAgEBPxB8/8QAKhABAAICAgAFAgcBAQAAAAAAAQARITFBUSBgYXGBMJEQUKHB4fDxsdH/2gAIAQEAAT8Qdv19iYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmPobSO3yltpHb5S20jt+hmgKoHLE6l235mf7WK37tfvRfy6R4fI20jt+hq4lpXvURkVW1eWD4p9BVS3A0mRmS/1Ur8dCj7TLK2cGcOkj9g4sgX7soGSFma9XUCJVpUPhe4FAxNTY8wXoUaAS2YqGNMSoTrqryMPa7iU04YFtS9uzmCwesqwmA+UjFVC2gp7hEPipT11OdhkFnrEAuVqiIPrUbIHCkD7sdkPDHJIbTdBc344u/19wqV01bzxHaqC0EQe24leQVdsC2IXYOPeH2K1RBfuTMkbJAPlltKZL59mC1Dg2AurobzEa4yuPybaR2/Q23+uI9JNOA9YarPcq37waGKcD6+COzXD69n9xMNRFSlsz94l44CGlbZd0lo+h/mArUIDQVxGfV2rt1X6T+u7h5oOX2XUfU6u83ev2h9UFFrtC4bnHpuZSdnTMNhfgI1gIV6O7j0AAuBYmAsop1ajGUthQ6bhqq5oFdvvGewM1biBoHoNpUuH+4SNG3D2usED7Ovav7y2KUoct+0yg9FD+UQijChwdwiNlaFmbmGwMNLZHsqpL1i47HK67c/kX/N4NI7fx9JHwqhSFuhNx6MM5wnEyM/099wVw6qB3HZ2ZOw5/GstoAdrtYdEq1QGXz/AGGj6bOIJopMQVVBAGaW6IdNbh7+hwu+K4qox1GD6kazSGcu58+t9913HoLtPLBAVUpyUwaR6lPsHBk1UACZ3NX0cSuoUsclNwnFACrkpgLKAFXJTLc7stH2JxCxEYmD/wBZcYdjLLVa8mXdS7qlsQweldQYe81vD2HcCIUWubJQ5FLYQ6mFO6HVuiJXW5EV6JERtYMX2vLAdsBQ2YKjINMU7Dn8ioPZvwaR2+DNN+FWhdKE/wBBPTgip5DsHjR4NI7fA4QsHyOvJFufHL4dI7fCjtUw9H5IaB+ZZw+8s7PIFOz7xHf3JpH4TEHsHi0jt8paR2+UtJ//2Q=="></div></article>
+</div></section>
+<div class="note">After step 4, add it and it will appear on your Home Screen.</div>
+<script>
+const p=new URLSearchParams(location.search);const name=p.get('name')||'Game App';const dev=p.get('developer')||'Standalone web app';const icon=p.get('icon');document.getElementById('appName').textContent=name;document.getElementById('appDev').textContent=dev;if(icon){const i=document.getElementById('appIcon');i.src=icon;i.onerror=()=>i.src='./apple-touch-icon.png'}document.getElementById('go').onclick=()=>document.getElementById('guide').scrollIntoView({behavior:'smooth'});
+</script>
+</body></html>
