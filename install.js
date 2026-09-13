@@ -31,6 +31,7 @@
     const developer=(document.querySelector('#detailDeveloper')?.textContent||'').trim();
 
     const url=new URL('./game-app.html',window.location.href);
+    url.searchParams.set('_v','5');
     url.searchParams.set('name',name);
     if(icon) url.searchParams.set('icon',icon);
     if(developer) url.searchParams.set('developer',developer);
